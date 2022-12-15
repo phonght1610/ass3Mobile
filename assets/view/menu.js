@@ -13,7 +13,7 @@ import {
   ScrollView,
   Button,TouchableOpacity,Alert
 } from 'react-native';
-import COLORS from 'C:/phong/LEARN/Mobile/3. btl/assMobileMenu/assets/view/consts/colors.js';
+import COLORS from './consts/colors';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Dangkidichvu from './dangkidichvu';
 const {width} = Dimensions.get('screen');

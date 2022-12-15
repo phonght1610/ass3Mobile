@@ -16,7 +16,7 @@ import {
   ScrollView,
   Button,TouchableOpacity,Alert,InputText, Animated, ImageBackground
 } from 'react-native';
-import COLORS from 'C:/phong/LEARN/Mobile/3. btl/assMobileMenu/assets/view/consts/colors.js';
+import COLORS from './consts/colors';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 const {width} = Dimensions.get('screen');
