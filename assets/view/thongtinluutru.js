@@ -21,7 +21,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 const {width} = Dimensions.get('screen');
 
-const Thongtinluutru = ()=>{
+const Thongtinluutru = ({navigation})=>{
     const [name, setName] = useState('');
     return (
         <SafeAreaView style  ={{backgroundColor: COLORS.white, flex: 1}}>
@@ -35,7 +35,9 @@ const Thongtinluutru = ()=>{
                         style = {style.propertiesImage}>               
                     </Image>
                     <Text style={style.nameUser}>Huy Doan</Text>
-                    <Text style = {style.trangcanhan} >Trang cá nhân! </Text>
+                    <TouchableOpacity onPress={()=>{navigation.navigate('Thongtincanhan')}}>
+                    <Text style = {style.trangcanhan} >Trang cá nhân</Text>
+                    </TouchableOpacity>
                 </View> 
                 <View style = {style.header1}>
                     <Text style = {{color:'#143656',fontSize:20,fontWeight:'bold'}}>Thông tin thuê phòng</Text>
@@ -155,14 +157,13 @@ const style = StyleSheet.create({
         top: 15,
     },
     trangcanhan:{
-        position: 'absolute',
-        width: 300,
+        //position: 'absolute',
+        width: 129,
         height: 24,
-        left: 70,
-        top: 35,
+        left: 68,
+        top: -25,
         fontSize:15,
-        fontWeight:'bold',
-        color: '#143656',
+        fontWeight:'bold'
     },
     Rectangle1:{
         flexDirection: 'row',

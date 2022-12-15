@@ -17,7 +17,7 @@ import COLORS from 'C:/phong/LEARN/Mobile/3. btl/assMobileMenu/assets/view/const
 import Icon from 'react-native-vector-icons/MaterialIcons';
 const {width} = Dimensions.get('screen');
 
-const Dangkidichvu  = () => {
+const Dangkidichvu  = ({navigation}) => {
     return(
         <SafeAreaView style  ={{backgroundColor: COLORS.white, flex: 1}}>
             <StatusBar 
@@ -35,31 +35,34 @@ const Dangkidichvu  = () => {
                 style = {style.propertiesImage}>               
                 </Image>
                 <Text style={style.nameUser}>Huy Doan</Text>
-                <Text style = {style.trangcanhan} >Trang ca nhan</Text>
+                <TouchableOpacity onPress={()=>{navigation.navigate('Thongtincanhan')}}>
+                    <Text style = {style.trangcanhan} >Trang cá nhân</Text>
+                </TouchableOpacity>
+                
             </View>    
             <View style = {style.header}>
-                <Text style = {{color:COLORS.dark,fontSize:25,fontWeight:'bold'}}>Dang ky dich vu</Text>
+                <Text style = {{color:COLORS.dark,fontSize:25,fontWeight:'bold'}}>Đăng kí dịch vụ</Text>
             </View>
-            <View style = {style.header}>
-            <TouchableOpacity onPress={()=>Alert.alert("dk wifi")}>
+            <View style = {style.header1}>
+            <TouchableOpacity onPress={()=>{navigation.navigate('Dangkiwifi')}}>
                 <View style = {style.button1}>
-                    <Text style = {{color:COLORS.dark,fontSize:16,fontWeight:'bold',justifyContent: 'center'}}> Dang ki wifi</Text>
+                    <Text style = {{color:COLORS.white,fontSize:18,fontWeight:'bold',justifyContent: 'center'}}> Đăng kí wifi</Text>
                 </View>
             </TouchableOpacity>
             </View>
             
-            <View style = {style.header}>
-            <TouchableOpacity onPress={()=>Alert.alert("dk gui xe")}>
+            <View style = {style.header1}>
+            <TouchableOpacity onPress={()=>{navigation.navigate('Dangkiguixe')}}>
                 <View style = {style.button1}>
-                    <Text style = {{color:COLORS.dark,fontSize:16,fontWeight:'bold',justifyContent: 'center'}}> Dang ki gui xe</Text>
+                    <Text style = {{color:COLORS.white,fontSize:18,fontWeight:'bold',justifyContent: 'center'}}> Đăng kí gửi xe</Text>
                 </View>
             </TouchableOpacity>
             </View>
 
-            <View style = {style.header}>
-            <TouchableOpacity onPress={()=>Alert.alert("dk don phong")}>
+            <View style = {style.header1}>
+            <TouchableOpacity onPress={()=>{navigation.navigate('Dangkidonphong')}}>
                 <View style = {style.button1}>
-                    <Text style = {{color:COLORS.dark,fontSize:16,fontWeight:'bold',justifyContent: 'center'}}> Dang ki don phong</Text>
+                    <Text style = {{color:COLORS.white,fontSize:18,fontWeight:'bold',justifyContent: 'center'}}> Đăng kí dọn phòng</Text>
                 </View>
             </TouchableOpacity>
             </View>
@@ -74,6 +77,12 @@ const style = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingHorizontal: 20,
+    },
+    header1:{
+        paddingVertical: 15,
+        paddingHorizontal: 20,
+        alignItems:'center',
+        alignContent:'center'
     },
     propertiesImage:{
         height:50,
@@ -96,11 +105,11 @@ const style = StyleSheet.create({
         top: 15,
     },
     trangcanhan:{
-        position: 'absolute',
+        //position: 'absolute',
         width: 129,
         height: 24,
-        left: 70,
-        top: 35,
+        left: 68,
+        top: -25,
         fontSize:15,
         fontWeight:'bold'
     },
@@ -109,12 +118,14 @@ const style = StyleSheet.create({
         justifyContent: 'space-between',
     },
     button1:{
-        height:75,
+        height:30,
         width:250,
-        backgroundColor:'white',
+        backgroundColor:'#46D0D9',
         borderWidth:1,
         marginLeft: 10,
         borderRadius:10,
+        alignItems:'center',
+        borderStartColor:"#46D0D9"
     },
     button2:{
         height:50,

@@ -107,10 +107,12 @@ const Dangkidonphong = ()=>{
                     style = {style.propertiesImage}>               
                     </Image>
                     <Text style={style.nameUser}>Huy Doan</Text>
-                    <Text style = {style.trangcanhan} >Trang ca nhan</Text>
+                    <TouchableOpacity onPress={()=>{navigation.navigate('Thongtincanhan')}}>
+                    <Text style = {style.trangcanhan} >Trang cá nhân</Text>
+                    </TouchableOpacity>
                 </View>    
                 <View style = {style.header}>
-                    <Text style = {{color:COLORS.dark,fontSize:25,fontWeight:'bold'}}>Dang ky don phong</Text>
+                    <Text style = {{color:COLORS.dark,fontSize:25,fontWeight:'bold'}}>Đăng kí dọn phòng</Text>
                 </View>
                 <View style = {style.header1}>
                     <TextInput style = {style.label}
@@ -206,11 +208,11 @@ const style = StyleSheet.create({
         top: 15,
     },
     trangcanhan:{
-        position: 'absolute',
+        //position: 'absolute',
         width: 129,
         height: 24,
-        left: 70,
-        top: 35,
+        left: 68,
+        top: -25,
         fontSize:15,
         fontWeight:'bold'
     },
@@ -239,7 +241,7 @@ const style = StyleSheet.create({
         width:100,
         backgroundColor:'#46D0D9',
         borderWidth:1,
-        marginLeft: 125,
+        marginLeft: '47.5%',
         justifyContent:'center',
         textAlignVertical: 'center',
         alignItems: 'center',

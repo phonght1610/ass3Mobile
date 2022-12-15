@@ -21,7 +21,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 const {width} = Dimensions.get('screen');
 
-const Thongbao = ()=>{
+const Thongbao = ({navigation})=>{
     const [name, setName] = useState('');
     return (
         <SafeAreaView style  ={{backgroundColor: COLORS.white, flex: 1}}>
@@ -35,7 +35,9 @@ const Thongbao = ()=>{
                         style = {style.propertiesImage}>               
                     </Image>
                     <Text style={style.nameUser}>Huy Doan</Text>
-                    <Text style = {style.trangcanhan} >Trang cá nhân! </Text>
+                    <TouchableOpacity onPress={()=>{navigation.navigate('Thongtincanhan')}}>
+                    <Text style = {style.trangcanhan} >Trang cá nhân</Text>
+                    </TouchableOpacity>
                 </View> 
                 <View style = {style.header1}>
                     <Text style = {{color:'#143656',fontSize:20,fontWeight:'bold'}}>Thông tin trong nhà</Text>
@@ -45,26 +47,13 @@ const Thongbao = ()=>{
                                 <Text style = {style.timeMonths}>04-04-2022</Text>
                                 <Text style = {style.nameRoom}>Thông tin kiểm tra phòng</Text>
                            
-                                <TouchableOpacity onPress={()=>Alert.alert("Successful")}>
-                                    <View style = {style.crectagleRight}>
+                                <TouchableOpacity onPress={()=>{navigation.navigate('thongbaochitiet')}}>
+                                    <View style = {style.button3}>
                                         <Text style = {style.statusLuutru}>View</Text>
                                     </View> 
-                                </TouchableOpacity>    
-                            
+                                </TouchableOpacity>                               
                         </View>
 
-                        <View style = {style.crectagle1}>
-                            
-                                <Text style = {style.timeMonths}>04-05-2022</Text>
-                                <Text style = {style.nameRoom}>Thông tin kiểm tra thiết bị trong phòng</Text>
-                                <TouchableOpacity onPress={()=>Alert.alert("Successful")}>
-                                    <View style = {style.crectagleRight}>
-                                        <Text style = {style.statusLuutru}>View</Text>
-                                    </View> 
-                                </TouchableOpacity>
-                                 
-                            
-                        </View>
 
 
 
@@ -114,14 +103,13 @@ const style = StyleSheet.create({
         top: 15,
     },
     trangcanhan:{
-        position: 'absolute',
-        width: 300,
+        //position: 'absolute',
+        width: 129,
         height: 24,
-        left: 70,
-        top: 35,
+        left: 68,
+        top: -25,
         fontSize:15,
-        fontWeight:'bold',
-        color: '#143656',
+        fontWeight:'bold'
     },
     Rectangle1:{
         flexDirection: 'row',
@@ -144,15 +132,16 @@ const style = StyleSheet.create({
         borderRadius:10,
     },
     button3:{
-        height:30,
-        width:100,
+        height:95,
+        width:99,
         backgroundColor:'#46D0D9',
-        borderWidth:1,
-        marginLeft: 125,
+        borderWidth:0,
+        marginLeft: '72.5%',
+        marginTop:'-0.25%',
         justifyContent:'center',
         textAlignVertical: 'center',
         alignItems: 'center',
-        borderRadius:5,
+        borderRadius:20,
     },
     label:{
         flex:1,
@@ -189,7 +178,7 @@ const style = StyleSheet.create({
         width: 361,
         height: 1000,
         left: 0,
-        top: 100,
+        top: 120,
         width: Dimensions.get('window').width - 30,
         marginLeft: 15,
       },

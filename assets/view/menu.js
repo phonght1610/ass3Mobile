@@ -15,9 +15,10 @@ import {
 } from 'react-native';
 import COLORS from 'C:/phong/LEARN/Mobile/3. btl/assMobileMenu/assets/view/consts/colors.js';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import Dangkidichvu from './dangkidichvu';
 const {width} = Dimensions.get('screen');
 
-const Menu  = () => {
+const Menu  = ({navigation}) => {
     return(
         <SafeAreaView style  ={{backgroundColor: COLORS.white, flex: 1}}>
             <StatusBar 
@@ -30,67 +31,69 @@ const Menu  = () => {
                 style = {style.propertiesImage}>               
                 </Image>
                 <Text style={style.nameUser}>Huy Doan</Text>
-                <Text style = {style.trangcanhan} >Trang ca nhan</Text>
+                <TouchableOpacity onPress={()=>{navigation.navigate('Thongtincanhan')}}>
+                    <Text style = {style.trangcanhan} >Trang cá nhân</Text>
+                    </TouchableOpacity>
             </View>    
             <View style = {style.header}>
                 <Text style = {{color:COLORS.dark,fontSize:25,fontWeight:'bold'}}>All Services</Text>
             </View>
             <View style = {style.header}>
-            <TouchableOpacity onPress={()=>Alert.alert("reactagle 1")}>
+            <TouchableOpacity onPress={() => {navigation.navigate('Dangkidichvu')}}>
                 <View style = {style.button1}>
                     <Image 
                         source={require('../img/dkhuy.png')}
                         style = {style.propertiesImage1}>
                     </Image>   
 
-                    <Text style = {{color:COLORS.dark,fontSize:16,fontWeight:'bold',marginLeft:60}}> Dang ki</Text>
-                    <Text style = {{color:COLORS.dark,fontSize:16,fontWeight:'bold',marginLeft:60}}> dich vu</Text>
+                    <Text style = {{color:COLORS.dark,fontSize:16,fontWeight:'bold',marginLeft:60}}> Đăng kí</Text>
+                    <Text style = {{color:COLORS.dark,fontSize:16,fontWeight:'bold',marginLeft:60}}> dịch vụ</Text>
                 </View>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={()=>Alert.alert("reactagle 2")}>
+            <TouchableOpacity onPress={() => {navigation.navigate('Thongbaomenu')}}>
                     <View style = {style.button2}>
                     <Image 
                         source={require('../img/thongbao.png')}
                         style = {style.propertiesImage1}>
                     </Image>  
-                    <Text style = {{color:COLORS.dark,fontSize:16,fontWeight:'bold',marginLeft:60}}> Thong bao</Text>
+                    <Text style = {{color:COLORS.dark,fontSize:16,fontWeight:'bold',marginLeft:60,marginTop:12}}> Thông báo</Text>
                     </View>
             </TouchableOpacity>
 
             </View>
             <View style = {style.header}>
-            <TouchableOpacity onPress={()=>Alert.alert("reactagle 1")}>
+            <TouchableOpacity onPress={() => {navigation.navigate('Thongtinlienlac')}}>
                     <View style = {style.button1}>
                     <Image 
                         source={require('../img/contact.png')}
                         style = {style.propertiesImage1}>
                     </Image> 
-                        <Text style = {{color:COLORS.dark,fontSize:16,fontWeight:'bold',marginLeft:60}}> Thong tin</Text>
-                        <Text style = {{color:COLORS.dark,fontSize:16,fontWeight:'bold',marginLeft:60}}> Lien he</Text>
+                        <Text style = {{color:COLORS.dark,fontSize:16,fontWeight:'bold',marginLeft:60}}> Thông tin</Text>
+                        <Text style = {{color:COLORS.dark,fontSize:16,fontWeight:'bold',marginLeft:60}}> liên hệ</Text>
                     </View>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={()=>Alert.alert("reactagle 2")}>
+            <TouchableOpacity onPress={() => {navigation.navigate('Lichsuthuephong')}}>
                     <View style = {style.button2}>
                     <Image 
                         source={require('../img/history.png')}
                         style = {style.propertiesImage1}>
                     </Image> 
-                        <Text style = {{color:COLORS.dark,fontSize:16,fontWeight:'bold',marginLeft:60}}> Lich su</Text>
-                        <Text style = {{color:COLORS.dark,fontSize:16,fontWeight:'bold',marginLeft:50}}> Thue phong</Text>
+                        <Text style = {{color:COLORS.dark,fontSize:16,fontWeight:'bold',marginLeft:60}}> Lịch sử</Text>
+                        <Text style = {{color:COLORS.dark,fontSize:16,fontWeight:'bold',marginLeft:50}}> thuê phong</Text>
                     </View>
             </TouchableOpacity>
             </View>
 
             <View style = {style.header}>
-            <TouchableOpacity onPress={()=>Alert.alert("reactagle 1")}>
+            <TouchableOpacity onPress={() => {navigation.navigate('Dangxuat')}}>
                     <View style = {style.button1}>
                     <Image 
                         source={require('../img/logout.png')}
                         style = {style.propertiesImage1}>
                     </Image> 
-                        <Text style = {{color:COLORS.dark,fontSize:16,fontWeight:'bold',marginLeft:60}}> Dang xuat</Text>
+                        <Text style = {{color:COLORS.dark,fontSize:16,fontWeight:'bold',marginLeft:60, marginTop:12}}> Đăng xuất</Text>
                     </View>
             </TouchableOpacity>
             </View>
@@ -128,11 +131,11 @@ const style = StyleSheet.create({
         top: 15,
     },
     trangcanhan:{
-        position: 'absolute',
+        //position: 'absolute',
         width: 129,
         height: 24,
-        left: 70,
-        top: 35,
+        left: 68,
+        top: -25,
         fontSize:15,
         fontWeight:'bold'
     },

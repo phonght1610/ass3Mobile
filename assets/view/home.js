@@ -26,7 +26,7 @@ const data = [
     { label: 'trong ngay', value: '2' },
   ];
 
-const Home = ()=>{
+const Home = ({navigation})=>{
     const [name, setName] = useState('');
     return (
         <SafeAreaView style  ={{backgroundColor: COLORS.white, flex: 1}}>
@@ -95,8 +95,12 @@ const Home = ()=>{
                             style = {style.imageOWN}>               
                         </Image>
                         <Text style = {style.price1}>2.000.000 VND</Text>
+                        
                         <Text style = {style.address1}>Linh Trung, Thu Duc</Text>
-                        <Text style = {style.nameHouse1}>Bk Home Thủ Đức</Text>
+                        <TouchableOpacity onPress={()=>{navigation.navigate('homedetail')}}>
+                            <Text style = {style.nameHouse1}>Bk Home Thủ Đức</Text>
+                        </TouchableOpacity>
+                            
                         <Text style = {style.nameOWN1}>Nhật Vượng</Text>
                         <Text style = {style.opinion1}>20 opinions</Text>
                     </View>
@@ -268,11 +272,11 @@ const style = StyleSheet.create({
         width: 150,
       },
       nameHouse1:{
-        position: 'absolute',
+        //position: 'absolute',
         left: '7.2%',
         right: '47.65%',
-        top: '10.43%',
-        bottom: '15.69%',
+        top: '30%',
+        bottom: '16.18%',
         fontWeight: 'bold',
         fontSize: 18,
         lineHeight: 24,
@@ -415,7 +419,7 @@ const style = StyleSheet.create({
         right: '0%',
         top: '130%',
         bottom: '0%',
-        borderWidth: 2,
+        borderWidth: 1,
         borderColor: '#143656',
         backgroundColor: '#ffff',
         borderRadius: 20,

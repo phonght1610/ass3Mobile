@@ -17,7 +17,7 @@ import COLORS from 'C:/phong/LEARN/Mobile/3. btl/assMobileMenu/assets/view/const
 import Icon from 'react-native-vector-icons/MaterialIcons';
 const {width} = Dimensions.get('screen');
 
-const Thongtinlienlac  = () => {
+const Thongtinlienlac  = ({navigation}) => {
     return(
         <SafeAreaView style  ={{backgroundColor: COLORS.white, flex: 1}}>
             <StatusBar 
@@ -36,7 +36,9 @@ const Thongtinlienlac  = () => {
                 style = {style.propertiesImage}>               
                 </Image>
                 <Text style={style.nameUser}>Huy Doan</Text>
-                <Text style = {style.trangcanhan} >Trang ca nhan</Text>
+                <TouchableOpacity onPress={()=>{navigation.navigate('Thongtincanhan')}}>
+                    <Text style = {style.trangcanhan} >Trang cá nhân</Text>
+                    </TouchableOpacity>
             </View>    
             <View style = {style.header}>
                 <Text style = {{color:COLORS.blue,fontSize:25,fontWeight:'bold'}}>Thong Tin Lien He</Text>
@@ -59,7 +61,7 @@ const Thongtinlienlac  = () => {
                         source={require('../img/number.png')}
                         style = {style.propertiesImage1}>
                     </Image> 
-                        <Text style = {{color:COLORS.dark,fontSize:16,fontWeight:'bold',marginLeft:60}}> +84123456789.</Text>
+                        <Text style = {{color:COLORS.dark,fontSize:16,fontWeight:'bold',marginLeft:60,marginTop:12}}> +84397465736.</Text>
                     </View>
             </TouchableOpacity>
             </View>
@@ -70,7 +72,7 @@ const Thongtinlienlac  = () => {
                         source={require('../img/email.png')}
                         style = {style.propertiesImage1}>
                     </Image> 
-                        <Text style = {{color:COLORS.dark,fontSize:16,fontWeight:'bold',marginLeft:60}}> abcd.efff@hcmut,edu.vn</Text>
+                        <Text style = {{color:COLORS.dark,fontSize:16,fontWeight:'bold',marginLeft:60,marginTop:12}}>phong.huynh1610@hcmut.edu.vn</Text>
                     </View>
             </TouchableOpacity>
             </View>
@@ -116,11 +118,11 @@ const style = StyleSheet.create({
         top: 15,
     },
     trangcanhan:{
-        position: 'absolute',
+        //position: 'absolute',
         width: 129,
         height: 24,
-        left: 70,
-        top: 35,
+        left: 68,
+        top: -25,
         fontSize:15,
         fontWeight:'bold'
     },

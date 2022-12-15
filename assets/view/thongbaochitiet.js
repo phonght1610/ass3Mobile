@@ -21,7 +21,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 const {width} = Dimensions.get('screen');
 
-const Luutru = ({navigation})=>{
+const Thongbaochitiet = ()=>{
     const [name, setName] = useState('');
     return (
         <SafeAreaView style  ={{backgroundColor: COLORS.white, flex: 1}}>
@@ -29,39 +29,25 @@ const Luutru = ({navigation})=>{
                     translucent = {false}
                     backgroundColor = {COLORS.white}
                     barStyle  = "dark-content"  />  
-                <View>
-                    <Image 
-                        source={require('../img/avar.png')}
-                        style = {style.propertiesImage}>               
-                    </Image>
-                    <Text style={style.nameUser}>Huy Doan</Text>
-                    <TouchableOpacity onPress={()=>{navigation.navigate('Thongtincanhan')}}>
-                    <Text style = {style.trangcanhan} >Trang cá nhân</Text>
-                    </TouchableOpacity>
+                <View style = {style.header1}>
+                    <Text style = {{color:'#143656',fontSize:26,fontWeight:'bold',alignItems:'center'}}>Thông báo kiểm tra phòng</Text>
                 </View> 
                 <View style = {style.header1}>
-                    <Text style = {{color:'#143656',fontSize:20,fontWeight:'bold'}}>Thông tin thuê phòng</Text>
+                    <Text style = {{color:'#143656',fontSize:20,fontWeight:'bold',alignItems:'center'}}>Mô tả:</Text>
                 </View> 
-                <View style = {style.goiy1}>
-                        <View style = {style.crectagle}>
-                                <Text style = {style.timeMonths}>Tháng 4 - 2022</Text>
-                                <Text style = {style.nameRoom}>Phòng 301</Text>
-                           
-                                <TouchableOpacity onPress={() => {navigation.navigate('Thongtinluutru')}}>
-                                    <View style = {style.button3}>
-                                        <Text style = {style.statusLuutru}>View</Text>
-                                    </View> 
-                                </TouchableOpacity>    
-                            
-                        </View>
-
-
-
+                <View style = {style.header1}>
+                    <Text style = {{color:'#143656',fontSize:16}}>Nhằm đảm bảo vệ sinh chung cũng như nắm tình hình các thiết bị trong nhà. 
+                    Vào ngày 25-12-2022 chủ nhà sẽ đi kiểm tra từng phòng cũng như xem xét hư thiếu gì trong nhà để bổ sung. Ngoài ra các vấn đề cần trao đổi trực tiếp
+                    Các bạn có thể trao đổi trực tiếp vào hôm đó. Trân trọng!</Text>
                 </View>
+
+                
+
+                
         </SafeAreaView>
     );
 };
-export default Luutru;
+export default Thongbaochitiet;
 const style = StyleSheet.create({
     header:{
         paddingVertical: 15,
@@ -74,14 +60,13 @@ const style = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingHorizontal: 20,
-      
     },
     header2:{
-        paddingVertical: 15,
+        paddingVertical: 5,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center',
         paddingHorizontal: 20,
+        borderBottomWidth:1,
     },
     propertiesImage:{
         height:50,
@@ -103,13 +88,14 @@ const style = StyleSheet.create({
         top: 15,
     },
     trangcanhan:{
-        //position: 'absolute',
-        width: 129,
+        position: 'absolute',
+        width: 300,
         height: 24,
-        left: 68,
-        top: -25,
+        left: 70,
+        top: 35,
         fontSize:15,
-        fontWeight:'bold'
+        fontWeight:'bold',
+        color: '#143656',
     },
     Rectangle1:{
         flexDirection: 'row',
@@ -132,16 +118,15 @@ const style = StyleSheet.create({
         borderRadius:10,
     },
     button3:{
-        height:95,
-        width:99,
+        height:30,
+        width:100,
         backgroundColor:'#46D0D9',
-        borderWidth:0,
-        marginLeft: '72.5%',
-        marginTop:'-0.25%',
+        borderWidth:1,
+        marginLeft: 125,
         justifyContent:'center',
         textAlignVertical: 'center',
         alignItems: 'center',
-        borderRadius:20,
+        borderRadius:5,
     },
     label:{
         flex:1,
@@ -178,7 +163,7 @@ const style = StyleSheet.create({
         width: 361,
         height: 1000,
         left: 0,
-        top: 120,
+        top: 100,
         width: Dimensions.get('window').width - 30,
         marginLeft: 15,
       },

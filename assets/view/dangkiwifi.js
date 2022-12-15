@@ -1,4 +1,4 @@
-import React,{ Component } from 'react';
+import React,{ Component, useState } from 'react';
 import {
     Dropdown }
     from 'react-native-element-dropdown';
@@ -22,29 +22,17 @@ import AntDesign from 'react-native-vector-icons/AntDesign'
 const {width} = Dimensions.get('screen');
 
 
-class Dangkiwifi extends Component {
-    state = {
-        tennguoidangky: '',
-        sophong: '',
-        nhamang:'',
-        time:''
-    }
-    handleName = (text) => {
-        this.setState({ tennguoidangky: text })
-    }
-    handleSophong = (text) => {
-        this.setState({ sophong: text })}
-    handleTime = (text) => {
-        this.setState({ time: text })}
-    handleNhamang = (text) => {
-        this.setState({ nhamang: text })}
-    render(){
-        let nha_mang = [{label: 'Viettel', value: '1'},{label: 'VNPT', value: '2'},{label: 'FPT', value: '3'}]
-        let data_time = [
-            { label: '1 Thang', value: '1' },
-            { label: '3 Thang', value: '2' },
-            { label: '6 Thang', value: '3' },
-            { label: '12 Thang', value: '4' }];
+const Dangkiwifi =()=>  {
+    const [ten,setTen] = useState('')
+    const [sophong,setSophong] = useState('')
+    const [nhamang,setNhamang] = useState('')
+    const [time,setTime] = useState('')
+    const nha_mang = [{label: 'Viettel', value: '1'},{label: 'VNPT', value: '2'},{label: 'FPT', value: '3'}]
+    const data_time = [
+        { label: '1 Thang', value: '1' },
+        { label: '3 Thang', value: '2' },
+        { label: '6 Thang', value: '3' },
+        { label: '12 Thang', value: '4' }];
         return(
             <SafeAreaView style  ={{backgroundColor: COLORS.white, flex: 1}}>
                 <StatusBar 
@@ -62,10 +50,12 @@ class Dangkiwifi extends Component {
                     style = {style.propertiesImage}>               
                     </Image>
                     <Text style={style.nameUser}>Huy Doan</Text>
-                    <Text style = {style.trangcanhan} >Trang ca nhan</Text>
+                    <TouchableOpacity onPress={()=>{navigation.navigate('Thongtincanhan')}}>
+                    <Text style = {style.trangcanhan} >Trang cá nhân</Text>
+                    </TouchableOpacity>
                 </View>    
                 <View style = {style.header}>
-                    <Text style = {{color:COLORS.dark,fontSize:25,fontWeight:'bold'}}>Dang ky wifi</Text>
+                    <Text style = {{color:COLORS.dark,fontSize:25,fontWeight:'bold'}}>Đăng kí wifi</Text>
                 </View>
                 <View style = {style.header1}>
                     <TextInput style = {style.label}
@@ -73,7 +63,8 @@ class Dangkiwifi extends Component {
                         placeholder = " Name"
                         placeholderTextColor = "#B5B1B1"
                         autoCapitalize = "none"
-                        onChangeText = {this.handleName}/>
+                        value={ten}
+                        onChangeText ={(value) => setTen({ value })}/>
                 </View>
     
                 <View style = {style.header1}>
@@ -82,7 +73,8 @@ class Dangkiwifi extends Component {
                         placeholder = " So phong"
                         placeholderTextColor = "#B5B1B1"
                         autoCapitalize = "none"
-                        onChangeText = {this.handleSophong}/>
+                        value={sophong}
+                        onChangeText ={(value) => setSophong({ value })}/>
                 </View>
                 <View style = {style.header1}>
                     <Dropdown style={style.label1}
@@ -94,11 +86,14 @@ class Dangkiwifi extends Component {
                         labelField="label"
                         valueField="value"
                         placeholder="Select nha mang..."
+                        placeholderTextColor = "#B5B1B1"
                         searchPlaceholder="Search..."
                         renderLeftIcon={() => (
                             <AntDesign style={style.icon} color="black" name="Safety" size={20} />
                           )}      
-                        onChangeText={this.handleTime}/>
+                        value = {nhamang}
+                        onChange={item => {
+                            setNhamang(item.value)}}/>
                 </View>
                 <View style = {style.header1}>
                     <Dropdown style={style.label1}
@@ -111,10 +106,12 @@ class Dangkiwifi extends Component {
                         valueField="value"
                         placeholder="Select time..."
                         searchPlaceholder="Search..."
+                        value = {time}
                         renderLeftIcon={() => (
                             <AntDesign style={style.icon} color="black" name="Safety" size={20} />
                           )}      
-                        onChangeText={this.handleTime}/>
+                          onChange={item => {
+                            setTime(item.value)}}/>
                 </View>
                 <View style = {style.header}>
                     <TouchableOpacity onPress={()=>Alert.alert("Successful")}>
@@ -125,8 +122,7 @@ class Dangkiwifi extends Component {
                 </View>
             </SafeAreaView>
             )
-    }   
-}
+    };  
 export default Dangkiwifi;
 const style = StyleSheet.create({
     header:{
@@ -169,11 +165,11 @@ const style = StyleSheet.create({
         top: 15,
     },
     trangcanhan:{
-        position: 'absolute',
+        //position: 'absolute',
         width: 129,
         height: 24,
-        left: 70,
-        top: 35,
+        left: 68,
+        top: -25,
         fontSize:15,
         fontWeight:'bold'
     },
@@ -202,7 +198,7 @@ const style = StyleSheet.create({
         width:100,
         backgroundColor:'#46D0D9',
         borderWidth:1,
-        marginLeft: 125,
+        marginLeft: '47.5%',
         justifyContent:'center',
         textAlignVertical: 'center',
         alignItems: 'center',
